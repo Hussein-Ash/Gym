@@ -6,6 +6,10 @@ namespace EvaluationBackend.Repository
     {
 
         IUserRepository User { get; }
+        ISectionRepository Section { get; }
+        ISetsRepository Sets { get; }
+
+
 
     }
 }

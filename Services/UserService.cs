@@ -11,9 +11,9 @@ namespace EvaluationBackend.Services
         Task<(UserDto? user, string? error)> Login(LoginForm loginForm);
         Task<(UserDto? user, string? error)> DeleteUser(Guid id, Guid userId);
         Task<(UserDto? UserDto, string? error)> Register(RegisterForm registerForm);
-        Task<(UserDto? UserDto, string? error)> AddAdmin(AddUserFromAdminForm registerForm);
+        Task<(string? message, string? error)> AddAdmin(AddUserFromAdminForm registerForm);
         Task<(UserDto? user, string? error)> UpdateUser(UpdateUserForm updateUserForm, Guid userId);
-        Task<(UserDto? user, string? error)> ChangeMyPassword(ChangePasswordForm form, Guid id);
+        Task<(string? message, string? error)> ChangeMyPassword(ChangePasswordForm form, Guid id);
         Task<(List<UserDto>? users, int? totalCount, string? error)> GetAll(UserFilter filter);
         Task<(UserDto? user, string? error)> GetUserById(Guid id);
         // Task<(string? user, string? error)> GetAccessToken(Guid? userId, DateTime? ExpierDate);
@@ -80,7 +80,7 @@ namespace EvaluationBackend.Services
             return (userDto, null);
         }
 
-        public async Task<(UserDto? UserDto, string? error)> AddAdmin(AddUserFromAdminForm AddUserForm)
+        public async Task<(string? message, string? error)> AddAdmin(AddUserFromAdminForm AddUserForm)
         {
             var user = await _repositoryWrapper.User.Get(u => u.UserName!.ToLower() == AddUserForm.UserName!.ToLower());
             if (user != null) return (null, "الحساب موجود بالفعل");
@@ -95,7 +95,7 @@ namespace EvaluationBackend.Services
             await _repositoryWrapper.User.CreateUser(newUser);
             var userDto = _mapper.Map<UserDto>(newUser);
             userDto.Token = _tokenService.CreateToken(userDto);
-            return (userDto, null);
+            return ("User Created", null);
         }
 
 
@@ -132,7 +132,7 @@ namespace EvaluationBackend.Services
             return (userDto, null);
         }
 
-        public async Task<(UserDto? user, string? error)> ChangeMyPassword(ChangePasswordForm form, Guid id)
+        public async Task<(string? message, string? error)> ChangeMyPassword(ChangePasswordForm form, Guid id)
         {
             var user = await _repositoryWrapper.User.GetById(id);
             if (form.NewPassword == user!.Password) return (null, "Same Password");
@@ -141,7 +141,7 @@ namespace EvaluationBackend.Services
             var result = await _repositoryWrapper.User.Update(user);
             if (result == null) return (null, "Error Updating Password");
 
-            return (_mapper.Map<UserDto>(user), null);
+            return ("New Password Is Set",null );
 
         }
 
@@ -156,9 +156,9 @@ namespace EvaluationBackend.Services
         {
 
             var (users, totalCount) = await _repositoryWrapper.User.GetAll<UserDto>(
-            //     x => (filter.FullName == null || x.FullName!.Contains(filter.FullName!)) &&
-            //    (filter.Email == null || x.Email!.Contains(filter.Email!)) &&
-            //   (filter.Role == null || x.Role == filter.Role),
+                x => (filter.FullName == null || x.FullName!.Contains(filter.FullName!)) &&
+               (filter.UserName == null || x.UserName!.Contains(filter.UserName!)) &&
+              (filter.PhoneNumber == null || x.PhoneNumber!.Contains(filter.PhoneNumber!)),
 
              filter.PageNumber, filter.PageSize
             );

@@ -13,6 +13,11 @@ namespace EvaluationBackend.DATA
 
 
         public DbSet<AppUser> Users { get; set; }
+        public DbSet<Section> Sections { get; set; }
+        public DbSet<Set> Sets { get; set; }
+        public DbSet<Offer> Offers { get; set; }
+
+
         
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

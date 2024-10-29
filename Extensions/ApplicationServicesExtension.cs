@@ -26,6 +26,9 @@ namespace EvaluationBackend.Extensions
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IFileService, FileService>();
+            services.AddScoped<ISectionsService,SectionsService>();
+            services.AddScoped<ISetsService,SetsService>();
+
           
 
             services.AddSignalR();

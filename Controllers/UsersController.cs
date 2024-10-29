@@ -37,7 +37,7 @@ public class UsersController : BaseController
     public async Task<ActionResult> UpdateUser(UpdateUserForm updateUserForm) => Ok(await _service.UpdateUser(updateUserForm, (Guid)Id!));
 
     [Authorize]
-    [HttpPut("ChangeMyPassword")]
+    [HttpPut("change-mypassword")]
     public async Task<ActionResult> ChangeMyPassword(ChangePasswordForm form) => Ok(await _service.ChangeMyPassword(form, (Guid)Id!));
 
 

@@ -15,6 +15,9 @@ namespace EvaluationBackend.DATA.DTOs.User
         [MinLength(2, ErrorMessage = "FullName must be at least 2 characters")]
         public string? FullName { get; set; }
         
+         [Required]
+        public string? PhoneNumber { get; set; }
+
         [Required]
         public string? Img { get; set; }
 
