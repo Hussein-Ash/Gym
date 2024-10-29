@@ -16,27 +16,27 @@ public class UsersController : BaseController
         _service = service;
     }
 
-    // [Authorize(Roles = "Admin,SuperAdmin")]
+    [Authorize(Roles = "Admin,SuperAdmin")]
     [HttpGet]
     public async Task<ActionResult<Respons<UserDto>>> GetAll([FromQuery] UserFilter filter) => Ok(await _service.GetAll(filter), filter.PageNumber);
 
-    // [Authorize(Roles = "Admin,SuperAdmin")]
+    [Authorize(Roles = "Admin,SuperAdmin")]
     [HttpPost]
     public async Task<ActionResult> AddAdmin(AddUserFromAdminForm registerForm) => Ok(await _service.AddAdmin(registerForm));
 
-    // [Authorize(Roles = "Admin,SuperAdmin")]
+    [Authorize(Roles = "Admin,SuperAdmin")]
     [HttpGet("{id}")]
     public async Task<ActionResult> GetUser(Guid id) => OkObject(await _service.GetUserById(id));
 
-    // [Authorize]
+    [Authorize]
     [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteUser(Guid id) => Ok(await _service.DeleteUser(id, (Guid)Id!));
 
-    // [Authorize]
+    [Authorize]
     [HttpPut("{id}")]
     public async Task<ActionResult> UpdateUser(UpdateUserForm updateUserForm) => Ok(await _service.UpdateUser(updateUserForm, (Guid)Id!));
 
-    // [Authorize]
+    [Authorize]
     [HttpPut("ChangeMyPassword")]
     public async Task<ActionResult> ChangeMyPassword(ChangePasswordForm form) => Ok(await _service.ChangeMyPassword(form, (Guid)Id!));
 
