@@ -14,8 +14,14 @@ namespace EvaluationBackend.DATA.DTOs.User
         [Required]
         [MinLength(2, ErrorMessage = "FullName must be at least 2 characters")]
         public string? FullName { get; set; }
+<<<<<<< HEAD
         
          [Required]
+=======
+
+        [Required]
+        [MinLength(11, ErrorMessage = "Phone Number must be 11 Number")]
+>>>>>>> 6c75216 (Initial commit)
         public string? PhoneNumber { get; set; }
 
         [Required]

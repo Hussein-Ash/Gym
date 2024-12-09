@@ -1,4 +1,8 @@
 using System.Globalization;
+<<<<<<< HEAD
+=======
+using API.SignalR;
+>>>>>>> 6c75216 (Initial commit)
 using EvaluationBackend;
 using EvaluationBackend.DATA;
 using EvaluationBackend.Extensions;
@@ -36,6 +40,10 @@ builder.Services.AddControllers()
 {
     options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
     options.SerializerSettings.Converters.Add(new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal });
+<<<<<<< HEAD
+=======
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+>>>>>>> 6c75216 (Initial commit)
 }); ;
 
 
@@ -72,6 +80,10 @@ app.UseSwaggerUI(
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "structure v1");
     // c.SwaggerEndpoint("/swagger/v2/swagger.json", "structure v2");
     c.InjectStylesheet("/swagger-ui/SwaggerDark.css");
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 6c75216 (Initial commit)
 }
 );
 
@@ -94,5 +106,10 @@ app.UseWebSockets();
 
 
 app.MapControllers();
+<<<<<<< HEAD
+=======
+app.MapHub<MessageHub>("chathub/message");
+
+>>>>>>> 6c75216 (Initial commit)
 
 app.Run();

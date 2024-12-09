@@ -25,6 +25,11 @@ namespace EvaluationBackend.Controllers
         protected Guid Id => Guid.TryParse(GetClaim("Id"), out var id) ? id : Guid.Empty;
 
         protected UserRole Role => Enum.Parse<UserRole>(GetClaim("Role"));
+<<<<<<< HEAD
+=======
+        protected string FullName => (GetClaim("FullName"));
+
+>>>>>>> 6c75216 (Initial commit)
         protected DateTime? TokenExpier => DateTime.TryParse(GetClaim("ExpierDate"), out var date) ? date : null;
 
         protected Guid? ParentId

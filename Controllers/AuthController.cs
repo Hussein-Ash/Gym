@@ -15,6 +15,13 @@ namespace EvaluationBackend.Controllers
             _userService = userService;
         }
 
+<<<<<<< HEAD
+=======
+      
+        /// <remarks>
+        /// Token: <code>eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIwZjhmOGE3MS1mYTkzLTQ4OTctN2E1NC00NWEwNjk2MTljMGUiLCJpZCI6IjBmOGY4YTcxLWZhOTMtNDg5Ny03YTU0LTQ1YTA2OTYxOWMwZSIsIlJvbGUiOiJTdXBlckFkbWluIiwiRXhwaWVyRGF0ZSI6IjEyLzkvMjAyNCAzOjQzOjEwIFBNIiwibmJmIjoxNzMzNzU4MDkwLCJleHAiOjE3MzQzNjI4OTAsImlhdCI6MTczMzc1ODA5MH0.jInM46fK7-hK3bH6Rzk7i7DPGrvGtklyeq71y5hwZPMh2PXzeqC5tUWl3MPl6AbtQbQu9Rf5l5u4mg3-ZWc7rQ</code>
+        /// </remarks>
+>>>>>>> 6c75216 (Initial commit)
         [HttpPost("Login")]
         public async Task<ActionResult> Login(LoginForm loginForm) => Ok(await _userService.Login(loginForm));
 

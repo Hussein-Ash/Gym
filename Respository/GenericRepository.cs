@@ -42,6 +42,11 @@ namespace EvaluationBackend.Repository
             var query = _dbContext.Set<T>().AsNoTracking().Where(predicate).Where(x => x.Deleted == false).OrderByDescending(x => x.CreationDate);
             return await ExecuteQuery<TDto>(query, pageNumber, pageSize);
         }
+<<<<<<< HEAD
+=======
+       
+        
+>>>>>>> 6c75216 (Initial commit)
 
         private async Task<(List<TDto> data, int totalCount)> ExecuteQuery<TDto>(IQueryable<T> query, int pageNumber, int pageSize)
         {
@@ -183,6 +188,10 @@ namespace EvaluationBackend.Repository
             .ToListAsync()),
             await query.CountAsync());
         }
+<<<<<<< HEAD
+=======
+       
+>>>>>>> 6c75216 (Initial commit)
 
 
     }

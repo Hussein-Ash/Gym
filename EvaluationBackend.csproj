@@ -2,8 +2,16 @@
 
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
+<<<<<<< HEAD
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+=======
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <DocumentationFile>bin\Debug\net7.0\EvaluationBackend.xml</DocumentationFile>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <NoWarn>1591</NoWarn>
+>>>>>>> 6c75216 (Initial commit)
     </PropertyGroup>
 
     <ItemGroup>
@@ -36,8 +44,16 @@
 
     <ItemGroup>
         <Folder Include="DATA\BankVideo2\" />
+<<<<<<< HEAD
         <Folder Include="Extensions\" />
         <Folder Include="wwwroot\Attachments\" />
     </ItemGroup>
 
 </Project>
+=======
+        <Folder Include="DATA\DTOs\Home\Sections\" />
+        <Folder Include="wwwroot\Attachments\" />
+    </ItemGroup>
+
+</Project>
+>>>>>>> 6c75216 (Initial commit)

@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+=======
+using System.Reflection;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Options;
+>>>>>>> 6c75216 (Initial commit)
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
@@ -14,7 +21,11 @@ namespace EvaluationBackend.Extensions
 
             services.AddSwaggerGen(option =>
             {
+<<<<<<< HEAD
                 option.SwaggerDoc("v1", new OpenApiInfo { Title = "Models API", Version = "v1" });
+=======
+                option.SwaggerDoc("v1", new OpenApiInfo { Title = "Gym", Version = "v1" });
+>>>>>>> 6c75216 (Initial commit)
                 // option.SwaggerDoc("v2", new OpenApiInfo { Title = "Structure API v2", Version = "v2" });
                 option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
@@ -40,6 +51,12 @@ namespace EvaluationBackend.Extensions
                         new string[]{}
                     }
                 });
+<<<<<<< HEAD
+=======
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                option.IncludeXmlComments(xmlPath);
+>>>>>>> 6c75216 (Initial commit)
             });
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -68,8 +85,13 @@ namespace EvaluationBackend.Extensions
                         if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/chathub"))
                         {
                             // Read the token from the query string
+<<<<<<< HEAD
                             
                             context.Token =accessToken;
+=======
+
+                            context.Token = accessToken;
+>>>>>>> 6c75216 (Initial commit)
                         }
 
 

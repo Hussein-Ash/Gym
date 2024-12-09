@@ -11,6 +11,10 @@ using EvaluationBackend.Repository;
 using EvaluationBackend.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http.Features;
+<<<<<<< HEAD
+=======
+using EvaluationBackend.Entities;
+>>>>>>> 6c75216 (Initial commit)
 
 namespace EvaluationBackend.Extensions
 {
@@ -28,6 +32,17 @@ namespace EvaluationBackend.Extensions
             services.AddScoped<IFileService, FileService>();
             services.AddScoped<ISectionsService,SectionsService>();
             services.AddScoped<ISetsService,SetsService>();
+<<<<<<< HEAD
+=======
+            services.AddScoped<IOfferService,OfferService>();
+            services.AddScoped<ISubscriptionService,SubscriptionService>();
+            services.AddScoped<IMuscleService,MuscleService>();
+            services.AddScoped<IExerciseService,ExerciseService>();
+            services.AddScoped<ICourseService,CourseService>();
+            services.AddScoped<INotificationService,NotificationService>();
+            services.AddScoped<IMessageService,MessageService>();
+
+>>>>>>> 6c75216 (Initial commit)
 
           
 

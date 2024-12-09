@@ -1,6 +1,10 @@
 using System;
 using AutoMapper;
+<<<<<<< HEAD
 using EvaluationBackend.DATA.DTOs.Section;
+=======
+using EvaluationBackend.DATA.DTOs.Sections;
+>>>>>>> 6c75216 (Initial commit)
 using EvaluationBackend.Entities;
 using EvaluationBackend.Repository;
 
@@ -71,7 +75,14 @@ public class SectionsService : ISectionsService
     
     public async Task<(List<SectionDto>? sectionDtos, int? totalCount, string? error)> GetAll(SectionFilter filter)
     {
+<<<<<<< HEAD
         var (section, totalCount) = await _repositoryWrapper.Section.GetAll<SectionDto>(filter.PageNumber, filter.PageSize);
+=======
+        var (section, totalCount) = await _repositoryWrapper.Section.GetAll<SectionDto>(
+            x=> 
+            filter.Name == null || x.Name!.Contains(filter.Name)
+            ,filter.PageNumber, filter.PageSize);
+>>>>>>> 6c75216 (Initial commit)
         return (section, totalCount, null);
     }
 

@@ -24,6 +24,10 @@ namespace EvaluationBackend.Services
                 new Claim(JwtRegisteredClaimNames.NameId, user.Id.ToString()),
                 // add role Claim
                 new Claim("id", user.Id.ToString()),
+<<<<<<< HEAD
+=======
+                // new Claim("FullName",user.FullName!),
+>>>>>>> 6c75216 (Initial commit)
                 new Claim("Role", user.Role!),
                 new Claim("ExpierDate", DateTime.UtcNow.AddMinutes(15).ToString()),
                 // new Claim(JwtRegisteredClaimNames., user.Email.ToString()),

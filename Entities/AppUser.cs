@@ -14,6 +14,18 @@ namespace EvaluationBackend.Entities
         public string? RefreshToken { get; set; }
         public string? Img { get; set; }
         public UserRole Role { get; set; }
+<<<<<<< HEAD
+=======
+
+        public Guid? SubId { get; set; }
+        public Subscription? Sub { get; set; }
+        public ICollection<Notification>? NotificationsSent { get; set; }
+        public ICollection<Notification>? NotificationsReceived { get; set; }
+
+        public ICollection<Message>? MessagesSent { get; set; }
+        public ICollection<Message>? MessagesReceived { get; set; }
+
+>>>>>>> 6c75216 (Initial commit)
     }
 
     public enum UserRole

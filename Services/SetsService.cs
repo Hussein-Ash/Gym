@@ -11,7 +11,11 @@ public interface ISetsService
     Task<(SetsDto? user, string? error)> GetById(Guid id);
     Task<(SetsDto? setDto, string? error)> Add(SetsForm setsForm);
     Task<(SetsDto? setDto, string? error)> Update(SetsUpdate setsUpdate, Guid Id);
+<<<<<<< HEAD
     Task<(Set? set, string? error)> Delete(Guid id);
+=======
+    Task<(Set? set, string? error)> Delete(Guid id); 
+>>>>>>> 6c75216 (Initial commit)
 }
 
 public class SetsService : ISetsService
